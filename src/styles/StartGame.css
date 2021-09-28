@@ -1,0 +1,19 @@
+.start-game-card {
+  max-width: 300px;
+  margin: 5% auto;
+}
+
+.start-game-card__label {
+  width: 100px;
+}
+
+.start-game-card__buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.start-game-card__button {
+  width: 120px;
+}

@@ -1,0 +1,24 @@
+.game-list-card {
+  max-width: 300px;
+  margin: 5% auto;
+}
+
+.game-list-card__btn {
+  width: 35px;
+  margin: 5px;
+}
+
+.game-list-card__header {
+  display: flex;
+  opacity: 0.9;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  justify-content: space-between;
+  font-size: 1.1rem;
+}
+
+.game-list-card__info {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
