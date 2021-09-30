@@ -13,8 +13,9 @@ Start.propTypes = {
 function Start(props) {
   const history = useHistory();
   
-  function handleSubmit(pin) {
-    props.setPin(pin);
+  function handleSubmit(gamePin) {
+    props.setPin(gamePin);
+    history.push(`/game/${gamePin}`);
   }
   
   return (
@@ -25,5 +26,4 @@ function Start(props) {
   )
 }
 
-export default Start;
-// export default withRouter(Start);
+export default withRouter(Start);

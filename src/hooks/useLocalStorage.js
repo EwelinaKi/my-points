@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react";
-import {getFromLocalStorage, saveToLocalSorage} from "../state/localStorage";
+import {getFromLocalStorage, saveToLocalStorage, clearLocalStorage} from "../state/localStorage";
 
 export const useLocalStorage = (key, defaultValue) => {
   
@@ -7,7 +7,8 @@ export const useLocalStorage = (key, defaultValue) => {
   
   const [storage, updateStorage] = useState(initialValue);
   
-  useEffect(() => saveToLocalSorage(key, storage), [storage]);
+  useEffect(() => {
+    storage ? saveToLocalStorage(key, storage) : clearLocalStorage(key)}, [storage]) ;
   
   return [storage, updateStorage];
 };

@@ -1,22 +1,26 @@
 import React from "react";
-import {useLocalStorage} from "../hooks/useLocalStorage"
 import { withRouter } from "react-router";
 import {useHistory} from "react-router-dom";
+import PropTypes from "prop-types";
 
-function Game() {
+
+Game.propTypes = {
+  gamePin: PropTypes.func.isRequired
+}
+
+function Game(props) {
   const history = useHistory();
-  const [gamePin, setGaamePin] = useLocalStorage('pin', '')
   
   React.useEffect(() => {
-    if (!gamePin) {
+    if (!props.gamePin) {
       history.push("/");
     }
-  })
+
+  },[props.gamePin]);
   
   
   return (
       <div>GAME</div>
-  
   );
 }
 

@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link, Redirect
+  Link,
 } from "react-router-dom";
 
 import {useLocalStorage} from "./hooks/useLocalStorage"
@@ -24,16 +24,11 @@ function App() {
   const [gamePin, setGamePin] = useLocalStorage('pin', '');
   const history = createBrowserHistory();
   
-  console.log('gamePin from LS:', gamePin);
-  
   React.useEffect(() => {
-    console.log('useEffect => pin changed:', gamePin);
     if (gamePin) {
-      console.log('redirect to game');
       history.push(`/game/${gamePin}`);
     }
     else {
-      console.log('redirect to home');
       history.push('/');
     }
   }, [gamePin])
@@ -44,9 +39,7 @@ function App() {
   
   return (
     <div className="App">
-  
-
-
+      
       <Router history={history}>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>
@@ -54,8 +47,8 @@ function App() {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                {!gamePin && <Nav.Link as={Link} to="/">Home</Nav.Link>}
-                {gamePin && <Nav.Link as={Link} to={`/game/${gamePin}`}>Game ({gamePin})</Nav.Link>}
+                <Nav.Link as={Link} to="/">Home</Nav.Link>
+                <Nav.Link as={Link} to={"/game/:pin"} disabled={!gamePin}>Game{gamePin? ` (${gamePin})` : ''}</Nav.Link>
                 <Nav.Link as={Link} to="/about">About</Nav.Link>
               </Nav>
               {!gamePin ? null :
@@ -71,7 +64,7 @@ function App() {
       <Switch>
         <Route exact path="/"><Start setPin={(newPin) => setGamePin(newPin)}/></Route>
         <Route exact path="/about" component={About}/>
-        <Route path="/game/:id" component={Game}/>
+        <Route path="/game"><Game gamePin={gamePin}/></Route>
         <Route render={() => <h1>Page not found</h1>}/>
       </Switch>
     
