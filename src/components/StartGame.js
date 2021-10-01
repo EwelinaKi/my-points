@@ -2,13 +2,13 @@ import React from "react";
 import "../styles/StartGame.css"
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { withRouter } from "react-router";
+import {withRouter} from "react-router";
 import PropTypes from "prop-types";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import {randomPin} from "../utils/randomGenerator";
 import {Game} from "../model/game";
-import {saveGame} from "../state/api";
+import {saveGameApi} from "../state/api";
 
 
 StartGame.propTypes = {
@@ -49,7 +49,7 @@ function StartGame(props) {
   function handleSubmit(event) {
     event.preventDefault();
     const newGame = new Game(tempGamePin);
-    saveGame(newGame.getGame());
+    saveGameApi(newGame.getGame());
     props.submit(tempGamePin);
   }
   
@@ -89,5 +89,4 @@ function StartGame(props) {
   )
 }
 
-export default StartGame;
-// export default withRouter(StartGame);
+export default withRouter(StartGame);

@@ -26,9 +26,9 @@ function GamesList(props) {
   }
   
   return (
-    <Card bg="dark" text="light" border="info" className="game-list-card">
+      <Card bg="dark" text="light" border="info" className="game-list-card">
       <Card.Body>
-        <Card.Title className="mb-3">{Object.keys(games).length ? "Recent games" : "No recent games"}</Card.Title>
+        <Card.Title className="mb-3">{games && Object.keys(games).length ? "Recent games" : "No recent games"}</Card.Title>
         <Card.Text>
           { games && Object.keys(games).map(key =>
              <Card bg="dark" text="light" className="mb-2" key={key}>
@@ -57,5 +57,4 @@ function GamesList(props) {
   )
 }
 
-export default GamesList;
-// export default withRouter(GamesList);
+export default withRouter(GamesList);
