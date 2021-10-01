@@ -8,6 +8,7 @@ import PlayerModal from  "../components/PlayerModal";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faUserPlus} from "@fortawesome/free-solid-svg-icons";
 import {Player} from "../model/player";
+import "../styles/PlayerList.css";
 
 
 PlayersList.propTypes = {
@@ -29,15 +30,15 @@ function PlayersList(props) {
   
   return (
     <>
-      <Card bg="dark" text="light" border="info" className="game-list-card">
+      <Card bg="light" text="dark" border="dark" className="game-list-card">
         <Card.Body>
           <Card.Title className="mb-3">
             Players
-            <Button size="sm" variant="outline-info" className="game-list-card__btn" onClick={handleShowModal}>
+            <Button size="sm" variant="outline-secondary" className="game-list-card__btn" onClick={handleShowModal}>
               <FontAwesomeIcon icon={faUserPlus}/>
             </Button>
           </Card.Title>
-          <Card.Text>
+          <Card.Text className="players-list">
             {props.players.map( player => <PlayerCard key={player.name} player={player}/>)}
             {props.players.length ? null :
               <FontAwesomeIcon style={{ width: '90px', height: '90px' }} icon={faUserPlus}/>

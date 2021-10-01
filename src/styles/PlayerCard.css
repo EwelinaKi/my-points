@@ -1,0 +1,48 @@
+/*TODO zmienne*/
+
+.player-card__frame-outer {
+  width: 100px;
+  height: 100px;
+  padding: 3px;
+  border-radius: 8px;
+  margin: 5px;
+  box-shadow: 0 0 3px #848484;
+}
+
+.player-card__frame-inner {
+  width: 94px;
+  height: 94px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 0 3px #848484;
+}
+
+.player-card__frame-inner:hover {
+  background-color: #efefef;
+  transition: background-color 0.1s;
+}
+
+.player-card__frame-inner:hover,
+.player-card__frame-outer:hover{
+  box-shadow: 0 0 3px #000000;
+  transition: box-shadow 0.3s;
+}
+
+.player-card__title {
+  border-radius:  5px 5px 0 0;
+  padding: 5px;
+  text-align: center;
+  border: 2px double white;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 2.3rem;
+}
+
+.player-card__points {
+  padding: 5px;
+  text-align: center;
+  font-size: 1.9rem;
+  font-weight: bolder;
+  max-height: 2.5rem;
+  overflow: hidden;
+}

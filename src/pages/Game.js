@@ -23,7 +23,7 @@ function Game(props) {
   },[players]);
   
   return (
-      <PlayersList players={players} setPlayers={(newPlayers) => setPlayers(newPlayers)}/>
+      <PlayersList className="game-container" players={players} setPlayers={(newPlayers) => setPlayers(newPlayers)}/>
   );
 }
 

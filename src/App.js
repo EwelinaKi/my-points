@@ -39,7 +39,7 @@ function App() {
   
   return (
     <div className="App" style={{
-      backgroundImage: "url(/bcg.png)",
+      backgroundImage: "url(/img/bcg.png)",
       backgroundRepeat: "repeat",
       height: "100vh"
     }}>

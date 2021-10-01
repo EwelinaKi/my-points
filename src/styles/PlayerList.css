@@ -1,0 +1,7 @@
+.players-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  margin: auto;
+}

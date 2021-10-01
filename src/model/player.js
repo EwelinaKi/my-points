@@ -1,23 +1,23 @@
 export class Player {
-  _color;
-  _name;
-  _points;
+  color;
+  name;
+  points;
   
   constructor(name, color, points = 0) {
-    this._name = name;
-    this._color = color;
-    this._points = points;
+    this.name = name;
+    this.color = color;
+    this.points = points;
   }
   
   addPoints(val) {
-    this._points = this._pionts + val;
+    this.points = this._pionts + val;
   }
   
   getPlayer() {
     return {
-      name: this._name,
-      color: this._color,
-      points: this._points,
+      name: this.name,
+      color: this.color,
+      points: this.points,
     }
   }
   

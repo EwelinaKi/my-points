@@ -1,5 +1,6 @@
 .game-list-card {
-  max-width: 300px;
+  max-width: 480px;
+  width: auto;
   margin: 5% auto;
 }
 
