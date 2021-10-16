@@ -1,4 +1,4 @@
-/*TODO zmienne*/
+/*TODO css variables*/
 
 .player-card__frame-outer {
   width: 100px;
@@ -7,6 +7,7 @@
   border-radius: 8px;
   margin: 5px;
   box-shadow: 0 0 3px #848484;
+  cursor: pointer;
 }
 
 .player-card__frame-inner {
@@ -45,4 +46,8 @@
   font-weight: bolder;
   max-height: 2.5rem;
   overflow: hidden;
+}
+
+.player-card__frame-outer--marked {
+  text-shadow: 0 0 12px #00ffcb;
 }

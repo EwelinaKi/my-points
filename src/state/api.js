@@ -20,7 +20,7 @@ export function savePlayersApi(gamePin, playersList = []) {
 }
 
 export function getPlayersApi(gamePin) {
-  return getGameApi(gamePin).players.map(player => new Player(player.name, player.color, player.points));
+  return getGameApi(gamePin).players.map(player => new Player(player.name, player.color, player.isActive, player.points));
 }
 
 export function saveGameApi(game) {

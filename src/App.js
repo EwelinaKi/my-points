@@ -17,6 +17,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
+import svg from "./assets/bcg.svg";
 
 import './App.css';
 
@@ -39,7 +40,7 @@ function App() {
   
   return (
     <div className="App" style={{
-      backgroundImage: "url(/img/bcg.png)",
+      backgroundImage: `url(${svg})`,
       backgroundRepeat: "repeat",
       height: "100vh"
     }}>
