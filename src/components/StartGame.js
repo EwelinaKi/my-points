@@ -54,7 +54,7 @@ function StartGame(props) {
   }
   
   return (
-    <Card bg="dark" text="light" border="info" className="start-game-card">
+    <Card bg="light" text="dark" className="start-game-card">
       <Card.Body>
         <Card.Title className="mb-3"> {mode.title} </Card.Title>
         <Card.Text>
@@ -79,8 +79,8 @@ function StartGame(props) {
             </InputGroup>
           
             <div className="start-game-card__buttons">
-              <Button className="start-game-card__button" variant="info" type="submit" disabled={!mode.pinDisabled}>{mode.goBtnLabel}</Button>
-              <Button className="start-game-card__button" variant="outline-info" type="button" onClick={mode.switchBtnFn}>{mode.switchBtnLabel}</Button>
+              <Button className="start-game-card__button" variant="primary" type="submit" disabled={!mode.pinDisabled}>{mode.goBtnLabel}</Button>
+              <Button className="start-game-card__button" variant="outline-primary" type="button" onClick={mode.switchBtnFn}>{mode.switchBtnLabel}</Button>
             </div>
           </Form>
         </Card.Text>

@@ -48,6 +48,14 @@
   overflow: hidden;
 }
 
-.player-card__frame-outer--marked {
-  text-shadow: 0 0 12px #00ffcb;
+.player-card__pawn {
+  position: absolute;
+  margin: -7px -7px;
+  border-radius: 15px;
+  width: 25px !important;
+  height: 25px;
+  background: #efb505;
+
+  border: 2px outset gold;
+  padding: 1px 3px 3px 3px;
 }

@@ -29,7 +29,7 @@ function PlayersList(props) {
 
   
   const handleSave = (player) => {
-    const newPlayersList = [...props.players, new Player(player.name, player.color, false)];
+    const newPlayersList = [...props.players, new Player(player.name, player.color)];
     props.setPlayers(newPlayersList);
     setShow(false);
   };

@@ -32,7 +32,7 @@ export function deletePlayerApi(gamePin, player) {
 }
 
 export function getPlayersApi(gamePin) {
-  return getGameApi(gamePin).players.map(player => new Player(player.name, player.color, player.isActive, player.points));
+  return getGameApi(gamePin).players.map(player => new Player(player.name, player.color, player.points));
 }
 
 export function saveGameApi(game) {

@@ -4,11 +4,11 @@ export class Player {
   points;
   isActive;
   
-  constructor(name, color, isActive, points = 0) {
+  constructor(name, color, points = 0) {
     this.name = name;
     this.color = color;
     this.points = points;
-    this.isActive = isActive;
+    this.isActive = false;
   }
 
   setActive(val) {
