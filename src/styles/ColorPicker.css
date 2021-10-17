@@ -1,0 +1,13 @@
+.color-picker-item {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.color-picker-item__box {
+  width: 20px;
+  height: 20px;
+  border: 2px double white;
+  border-radius: 10px;
+  margin-right: 5px;
+}

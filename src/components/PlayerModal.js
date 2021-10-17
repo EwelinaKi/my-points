@@ -5,10 +5,11 @@ import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
+import ColorPicker from "./ColorPicker";
+import COLORS from "../model/colors";
+import "../styles/PlayerModal.css"
 
 // TODO form validation
-// TODO colors select
-
 
 PlayerModal.propTypes = {
   show: PropTypes.bool.isRequired,
@@ -26,33 +27,25 @@ function PlayerModal(props) {
   function savePlayer() {
     props.onSave({name, color})
   }
-
   
   return (
-    <Modal show={props.show} onHide={props.onClose}>
+    <Modal show={props.show} onHide={props.onClose} className="player-modal__container">
       <Modal.Header closeButton>
         <Modal.Title>{props.edit ? 'Edit' : 'Add new'} player</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form>
-          <InputGroup className="mb-3">
-            <InputGroup.Text className="start-game-card__label" size="sm" id="basic-addon3">Name</InputGroup.Text>
-            <Form.Control
-                id="basic-url"
-                onChange={() => setName(event.target.value)}
-                aria-describedby="basic-addon3"
-                value={name}
-                />
+          <InputGroup className="mb-3 player-modal__player-name">
+            <InputGroup.Text size="sm">Name</InputGroup.Text>
+            <Form.Control onChange={() => setName(event.target.value)} value={name}/>
           </InputGroup>
-          <InputGroup className="mb-3">
-            <InputGroup.Text className="start-game-card__label" id="basic-addon3">Color</InputGroup.Text>
-            <Form.Control
-                id="basic-url"
-                aria-describedby="basic-addon3"
-                onChange={() => setColor(event.target.value)}
-                value={color}
-                />
-          </InputGroup>
+          <div className="player-modal__color-picker">
+            <ColorPicker color={color} onSelect={(selectedColor) => setColor(selectedColor)}></ColorPicker>
+            { color && <div className="player-modal__preview" style={{
+              'background-color': `${COLORS[color].color}`,
+              'color': `${COLORS[color].fontColor}`
+            }}>{color}</div>}
+          </div>
         </Form>
       </Modal.Body>
       <Modal.Footer>
