@@ -39,6 +39,10 @@ const COLORS = {
     fontColor: 'white',
     color: '#aa5518'
   },
+  white: {
+    fontColor: 'black',
+    color: '#f1f1f1'
+  },
   
 }
 

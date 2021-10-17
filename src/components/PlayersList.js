@@ -14,7 +14,8 @@ import "../styles/PlayerList.css";
 
 PlayersList.propTypes = {
   players: PropTypes.array.isRequired,
-  setPlayers: PropTypes.func.isRequired
+  setPlayers: PropTypes.func.isRequired,
+  activePlayer: PropTypes.func.isRequired
 }
 
 function PlayersList(props) {
@@ -44,6 +45,7 @@ function PlayersList(props) {
     if (previousActivePlayer) {
       previousActivePlayer.setActive(false);
     }
+    props.activePlayer(activePlayer);
   }, [activePlayer]);
   
   function togglePlayer(player) {

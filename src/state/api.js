@@ -19,6 +19,18 @@ export function savePlayersApi(gamePin, playersList = []) {
   }
 }
 
+export function updatePlayerApi(gamePin, player) {
+  const games = getGames();
+  games[gamePin].players =  games[gamePin].players.map( el => el.name === player.name ? player : el);
+  saveGameApi({[gamePin]: games[gamePin]});
+}
+
+export function deletePlayerApi(gamePin, player) {
+  const games = getGames();
+  games[gamePin].players = games[gamePin].players.filter( el => el.name !== player.name);
+  saveGameApi({[gamePin]: games[gamePin]})
+}
+
 export function getPlayersApi(gamePin) {
   return getGameApi(gamePin).players.map(player => new Player(player.name, player.color, player.isActive, player.points));
 }

@@ -11,16 +11,12 @@ export class Player {
     this.isActive = isActive;
   }
 
-  toggleActive() {
-    this.isActive = !this.isActive;
-  }
-
   setActive(val) {
     this.isActive = val;
   }
   
   addPoints(val) {
-    this.points = this._pionts + val;
+    this.points = this.points + val;
   }
   
   getPlayer() {
@@ -31,5 +27,4 @@ export class Player {
       isActive: this.isActive
     }
   }
-  
 }

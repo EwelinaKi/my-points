@@ -6,8 +6,8 @@ import PropTypes from "prop-types";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 
-// TODO walidacja
-// TODO kolory
+// TODO form validation
+// TODO colors select
 
 
 PlayerModal.propTypes = {

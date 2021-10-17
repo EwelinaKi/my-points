@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {withRouter} from "react-router";
 import "../styles/PlayerCard.css"
 import PropTypes from "prop-types";
@@ -11,12 +11,6 @@ PlayerCard.propTypes = {
 }
 
 function PlayerCard(props) {
-  
-  useEffect(() => {
-    console.log('reredner set marked:',props.player.name,  props.player.isActive);
-
-  }, )
-  
 
   return (
      <div
