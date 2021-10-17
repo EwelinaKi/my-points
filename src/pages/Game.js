@@ -39,14 +39,16 @@ function Game(props) {
   return (
     <>
       <PlayersList className="game-container"
-                   players={players}
-                   activePlayer={(player) => setActivePlayer(player)}
-                   setPlayers={(newPlayers) => setPlayers(newPlayers)}/>
+         players={players}
+         activePlayer={(player) => setActivePlayer(player)}
+         setPlayers={(newPlayers) => setPlayers(newPlayers)}
+      />
       {activePlayer &&
-      <PlayerPoints className="points-container"
-                   player={activePlayer}
-                    deletePlayer={(player) => deletePlayer(player)}
-                   editPlayer={(player) => editPlayer(player)}/>
+        <PlayerPoints className="points-container"
+           player={activePlayer}
+           deletePlayer={(player) => deletePlayer(player)}
+           editPlayer={(player) => editPlayer(player)}
+        />
       }
     </>
   );

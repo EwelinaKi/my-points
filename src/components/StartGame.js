@@ -60,27 +60,31 @@ function StartGame(props) {
         <Card.Text>
           <Form onSubmit={handleSubmit}>
             <InputGroup className="mb-3">
-              <InputGroup.Text className="start-game-card__label" size="sm" id="basic-addon3">{mode.pinInputLabel}</InputGroup.Text>
+              <InputGroup.Text className="start-game-card__label" size="sm">{mode.pinInputLabel}</InputGroup.Text>
               <Form.Control
-                  id="basic-url"
-                  disabled={mode.pinDisabled}
-                  onChange={() => setTempGamePin(event.target.value)}
-                  aria-describedby="basic-addon3"
-                  value={tempGamePin}/>
+                disabled={mode.pinDisabled}
+                onChange={() => setTempGamePin(event.target.value)}
+                value={tempGamePin}/>
             </InputGroup>
           
             <InputGroup className="mb-3">
-              <InputGroup.Text className="start-game-card__label" id="basic-addon3">{mode.passInputLabel}</InputGroup.Text>
+              <InputGroup.Text className="start-game-card__label">{mode.passInputLabel}</InputGroup.Text>
               <Form.Control
-                  id="basic-url"
-                  aria-describedby="basic-addon3"
-                  onChange={() => setTempGamePass(event.target.value)}
-                  value={tempGamePass}/>
+                onChange={() => setTempGamePass(event.target.value)}
+                value={tempGamePass}/>
             </InputGroup>
           
             <div className="start-game-card__buttons">
-              <Button className="start-game-card__button" variant="primary" type="submit" disabled={!mode.pinDisabled}>{mode.goBtnLabel}</Button>
-              <Button className="start-game-card__button" variant="outline-primary" type="button" onClick={mode.switchBtnFn}>{mode.switchBtnLabel}</Button>
+              <Button className="start-game-card__button"
+                variant="primary"
+                type="submit"
+                disabled={!mode.pinDisabled}>{mode.goBtnLabel}
+              </Button>
+              <Button className="start-game-card__button"
+                variant="outline-primary"
+                type="button"
+                onClick={mode.switchBtnFn}>{mode.switchBtnLabel}
+              </Button>
             </div>
           </Form>
         </Card.Text>

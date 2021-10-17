@@ -25,8 +25,8 @@ function PlayerCard(props) {
         <div className="player-card__frame player-card__frame-inner">
           {props.player.isActive && <FontAwesomeIcon fill={color} size="xl" color="black" icon={faChessPawn} className="player-card__pawn"/>}
           <div
-              className="player-card__title"
-              style={{'backgroundColor': `${color}`, 'color': `${fontColor}`}}>
+            className="player-card__title"
+            style={{'backgroundColor': `${color}`, 'color': `${fontColor}`}}>
             <strong>{props.player.name}</strong>
           </div>
           <div className="player-card__points" >
