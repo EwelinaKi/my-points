@@ -9,9 +9,9 @@ import {
 
 import {useLocalStorage} from "./hooks/useLocalStorage"
 
-import About from "./pages/About";
-import Game from "./pages/Game";
-import Start from "./pages/Start";
+import About from "./views/About";
+import Game from "./views/Game";
+import Start from "./views/Start";
 
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";

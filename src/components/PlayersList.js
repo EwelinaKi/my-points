@@ -8,7 +8,6 @@ import PlayerModal from  "../components/PlayerModal";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faUserPlus} from "@fortawesome/free-solid-svg-icons";
 import {Player} from "../model/player";
-import {usePrevious} from "../hooks/usePrevious";
 import "../styles/PlayerList.css";
 
 
@@ -25,7 +24,8 @@ function PlayersList(props) {
   const handleClose = () => setShow(false);
   const handleShowModal = () => setShow(true);
   
-  const previousActivePlayer = usePrevious(activePlayer);
+  // const previousActivePlayer = usePrevious(activePlayer); /
+  const previousActivePlayer = activePlayer;
 
   
   const handleSave = (player) => {

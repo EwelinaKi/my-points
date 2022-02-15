@@ -8,7 +8,7 @@ import PlayerPoints from "../components/PlayerPionts";
 
 
 Game.propTypes = {
-  gamePin: PropTypes.func.isRequired
+  gamePin: PropTypes.string.isRequired
 }
 
 function Game(props) {

@@ -21,7 +21,7 @@ function PlayerCard(props) {
      <div
          className={`player-card__frame player-card__frame-outer ${props.player.isActive ? 'player-card__frame-outer--marked' : ''}`}
          onClick={() => props.togglePlayer(!props.player.isActive)}
-         style={{ 'background-color': `${color}`}}>
+         style={{ backgroundColor: `${color}`}}>
         <div className="player-card__frame player-card__frame-inner">
           {props.player.isActive && <FontAwesomeIcon fill={color} size="xl" color="black" icon={faChessPawn} className="player-card__pawn"/>}
           <div

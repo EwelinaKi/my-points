@@ -19,7 +19,7 @@ function ColorPicker(props) {
       {Object.keys(COLORS).map((key) =>
           <Dropdown.Item  key={key}>
             <div className="color-picker-item" onClick={() => props.onSelect(key)}>
-              <div className="color-picker-item__box" style={{'background-color': `${COLORS[key].color}`}}></div>
+              <div className="color-picker-item__box" style={{backgroundColor: `${COLORS[key].color}`}}/>
               <span>{key}</span>
             </div>
           </Dropdown.Item >)}

@@ -58,7 +58,7 @@ function PlayerPoints(props) {
               type="button"
               className="player-points-card__points-box"
               key={el}
-              style={{'background-color': `${color}`, 'color': `${bcgColor}`}}
+              style={{backgroundColor: `${color}`, color: `${bcgColor}`}}
               onClick={() => setPoints(el)}>{el > 0 && '+'}{el}
             </Button>
           )}
