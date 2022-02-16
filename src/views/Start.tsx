@@ -1,16 +1,16 @@
-import PropTypes from "prop-types";
 import React from "react";
-import GamesList from "../components/GamesList"
 import {withRouter} from "react-router";
 import {useHistory} from "react-router-dom";
+
+import GamesList from "../components/GamesList"
 import StartGame from "../components/StartGame";
 
 
-Start.propTypes = {
-  setPin: PropTypes.func.isRequired
+interface IStartProps {
+  setPin: (pin: string) => void
 }
 
-function Start(props) {
+const Start: React.FC<IStartProps> = (props) => {
   const history = useHistory();
   
   function handleSubmit(gamePin) {

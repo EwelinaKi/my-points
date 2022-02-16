@@ -1,4 +1,4 @@
-function randomString(len, charSet) {
+function randomString(len: number, charSet: string): string {
     charSet = charSet || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
     let randomString = '';
     for (let i = 0; i < len; i++) {
@@ -8,7 +8,7 @@ function randomString(len, charSet) {
     return randomString;
 }
 
-export function randomPin() {
+export function randomPin(): string {
     return randomString(10, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-');
 }
 

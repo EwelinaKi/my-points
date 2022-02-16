@@ -1,18 +1,18 @@
 import React from "react";
-import "../styles/GameList.css"
-import { withRouter } from "react-router";
-import PropTypes from "prop-types";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import COLORS from "../model/colors";
 import Dropdown from "react-bootstrap/Dropdown";
+import { withRouter } from "react-router";
+import DropdownButton from "react-bootstrap/DropdownButton";
+
+import "../styles/GameList.css"
 import "../styles/ColorPicker.css";
+import COLORS from "../model/colors";
 
 
-ColorPicker.propTypes = {
-  onSelect: PropTypes.func.isRequired
+interface IColorPickerProps {
+  onSelect: (arg: string) => void;
 }
 
-function ColorPicker(props) {
+const ColorPicker: React.FC<IColorPickerProps> = (props) => {
   
   return (
     <DropdownButton variant="outline-secondary" title="Pick color">

@@ -1,22 +1,23 @@
 import React, {useEffect, useState} from "react";
 import {withRouter} from "react-router";
-import "../styles/PlayerCard.css"
-import PropTypes from "prop-types";
-import COLORS from "../model/colors";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEdit, faTrash} from "@fortawesome/free-solid-svg-icons";
+
 import "../styles/PlayerPoints.css";
+import "../styles/PlayerCard.css"
+import COLORS from "../model/colors";
+import {Player} from "../model/player";
 
 
-PlayerPoints.propTypes = {
-  player: PropTypes.object.isRequired,
-  editPlayer: PropTypes.func.isRequired,
-  deletePlayer: PropTypes.func.isRequired
+interface IPlayerPoints {
+  player: Player,
+  editPlayer: (player: Player) => void,
+  deletePlayer: (player: Player) => void
 }
 
-function PlayerPoints(props) {
+const PlayerPoints: React.FC<IPlayerPoints> = (props) => {
   const points = [-50, -25, -10, -5, -3, -1, 1, 3, 5, 10, 25, 50];
   const [totalPoints, setTotalPoints] = useState(0);
   const [color, setColor] = useState('transparent');

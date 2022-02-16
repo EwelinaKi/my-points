@@ -1,22 +1,32 @@
-import React from "react";
-import "../styles/StartGame.css"
+import React, {FormEvent} from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import {withRouter} from "react-router";
-import PropTypes from "prop-types";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+
+import "../styles/StartGame.css"
 import {randomPin} from "../utils/randomGenerator";
 import {Game} from "../model/game";
 import {saveGameApi} from "../state/api";
 
 
-StartGame.propTypes = {
-  submit: PropTypes.func.isRequired
+interface IStartGameProps  {
+  submit: (pin: string) => void
 }
 
-function StartGame(props) {
-  const options ={
+interface IGame {
+  title: string,
+  pinInputLabel: string,
+  pinDisabled: boolean,
+  passInputLabel: string,
+  goBtnLabel: string,
+  switchBtnLabel: string,
+  switchBtnFn: () => void,
+}
+
+const StartGame: React.FC<IStartGameProps> = (props) => {
+  const options: {[key: string]: IGame} = {
     newGame: {
       title: 'Create new game',
       pinInputLabel: 'NEW PIN',
@@ -41,12 +51,12 @@ function StartGame(props) {
   const [tempGamePass, setTempGamePass] = React.useState('');
   
   
-  function switchMode(isNewGame) {
+  function switchMode(isNewGame: boolean): void {
     setMode(isNewGame ? options.newGame : options.existingGame);
     setTempGamePin(isNewGame ? randomPin() : '');
   }
   
-  function handleSubmit(event) {
+  function handleSubmit(event: FormEvent): void {
     event.preventDefault();
     const newGame = new Game(tempGamePin);
     saveGameApi(newGame.getGame());
@@ -58,19 +68,19 @@ function StartGame(props) {
       <Card.Body>
         <Card.Title className="mb-3"> {mode.title} </Card.Title>
         <Card.Text>
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={e => handleSubmit(e)}>
             <InputGroup className="mb-3">
-              <InputGroup.Text className="start-game-card__label" size="sm">{mode.pinInputLabel}</InputGroup.Text>
+              <InputGroup.Text className="start-game-card__label">{mode.pinInputLabel}</InputGroup.Text>
               <Form.Control
                 disabled={mode.pinDisabled}
-                onChange={() => setTempGamePin(event.target.value)}
+                onChange={e => setTempGamePin(e.target.value)}
                 value={tempGamePin}/>
             </InputGroup>
           
             <InputGroup className="mb-3">
               <InputGroup.Text className="start-game-card__label">{mode.passInputLabel}</InputGroup.Text>
               <Form.Control
-                onChange={() => setTempGamePass(event.target.value)}
+                onChange={e => setTempGamePass(e.target.value)}
                 value={tempGamePass}/>
             </InputGroup>
           

@@ -2,23 +2,22 @@ import React, {} from "react";
 import {withRouter} from "react-router";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import PropTypes from "prop-types";
+
 import "../styles/PlayerModal.css"
 
-ModalWrapper.propTypes = {
-  show: PropTypes.bool.isRequired,
-  title: PropTypes.string.isRequired,
-  onClose: PropTypes.func.isRequired,
-  primaryLabel: PropTypes.string.isRequired,
-  onPrimaryClick: PropTypes.func.isRequired,
-  secondaryLabel: PropTypes.string,
-  onSecondaryClick: PropTypes.func,
-  children: PropTypes.element,
+
+interface IModalWrapperProps {
+  show: boolean,
+  title: string,
+  onClose: () => void,
+  primaryLabel: string,
+  onPrimaryClick: () => void,
+  secondaryLabel: string,
+  onSecondaryClick: () => void,
+  children: HTMLElement,
 }
 
-function ModalWrapper(props) {
-
-  console.log(props);
+const ModalWrapper: React.FC<IModalWrapperProps> = (props) => {
 
   const {show, title, onClose, primaryLabel, onPrimaryClick, secondaryLabel, onSecondaryClick, children} = props
 

@@ -1,19 +1,20 @@
 import React, {useState, useEffect} from "react";
 import {withRouter} from "react-router";
 import {useHistory} from "react-router-dom";
-import PropTypes from "prop-types";
+
 import PlayersList from "../components/PlayersList"
 import {getPlayersApi, savePlayersApi, updatePlayerApi, deletePlayerApi} from "../state/api";
 import PlayerPoints from "../components/PlayerPionts";
+import {Player} from "../model/player";
 
 
-Game.propTypes = {
-  gamePin: PropTypes.string.isRequired
+interface IGameProps {
+  gamePin: string
 }
 
-function Game(props) {
+const Game: React.FC<IGameProps> = (props)=> {
   const history = useHistory();
-  const [players, setPlayers] = useState([]);
+  const [players, setPlayers] = useState<Player[]>([]);
   const [activePlayer, setActivePlayer] = useState(null);
   
   useEffect(() => {

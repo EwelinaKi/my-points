@@ -19,5 +19,6 @@
     ],
     "rules": {
         "no-unused-vars": "off"
-    }
+    },
+    "parser": "@typescript-eslint/parser"
 }

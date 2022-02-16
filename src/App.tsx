@@ -6,18 +6,16 @@ import {
   Route,
   Link,
 } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Button from "react-bootstrap/Button";
+import Navbar from "react-bootstrap/Navbar";
 
+import svg from "./assets/bcg.svg";
 import {useLocalStorage} from "./hooks/useLocalStorage"
-
 import About from "./views/About";
 import Game from "./views/Game";
 import Start from "./views/Start";
-
-import Navbar from "react-bootstrap/Navbar";
-import Button from "react-bootstrap/Button";
-import Nav from "react-bootstrap/Nav";
-import Container from "react-bootstrap/Container";
-import svg from "./assets/bcg.svg";
 
 import './App.css';
 
@@ -34,7 +32,7 @@ function App() {
     }
   }, [gamePin])
   
-  function leaveGame() {
+  function leaveGame(): void {
     setGamePin('');
   }
   

@@ -1,23 +1,23 @@
 import React, {useEffect, useState} from "react";
 import {withRouter} from "react-router";
-import PropTypes from "prop-types";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import PlayerCard from "./PlayerCard";
-import PlayerModal from  "../components/PlayerModal";
+import PlayerModal from "./PlayerModal";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faUserPlus} from "@fortawesome/free-solid-svg-icons";
-import {Player} from "../model/player";
+
 import "../styles/PlayerList.css";
+import {Player} from "../model/player";
 
 
-PlayersList.propTypes = {
-  players: PropTypes.array.isRequired,
-  setPlayers: PropTypes.func.isRequired,
-  activePlayer: PropTypes.func.isRequired
+interface IPlayersListProps {
+  players: Player[],
+  setPlayers: (players: Player[]) => void,
+  activePlayer: (player: Player | null) => void
 }
 
-function PlayersList(props) {
+const PlayersList: React.FC<IPlayersListProps> = (props) => {
   
   const [show, setShow] = useState(false);
   const [activePlayer, setActivePlayer] = useState(findActivePlayer(props.players));
@@ -28,14 +28,14 @@ function PlayersList(props) {
   const previousActivePlayer = activePlayer;
 
   
-  const handleSave = (player) => {
+  const handleSave = (player: Player) => {
     const newPlayersList = [...props.players, new Player(player.name, player.color)];
     props.setPlayers(newPlayersList);
     setShow(false);
   };
   
-  function findActivePlayer(players) {
-    return players.find(player => player.isActive);
+  function findActivePlayer(players: Player[]): Player | null{
+    return players.find(player => player.isActive) || null;
   }
   
   useEffect(() => {
@@ -48,7 +48,7 @@ function PlayersList(props) {
     props.activePlayer(activePlayer);
   }, [activePlayer]);
   
-  function togglePlayer(player) {
+  function togglePlayer(player: Player): void {
     if (activePlayer && player.name !== activePlayer.name || !activePlayer) {
       setActivePlayer(player);
     } else {
@@ -66,12 +66,12 @@ function PlayersList(props) {
               <FontAwesomeIcon icon={faUserPlus}/>
             </Button>
           </Card.Title>
-          <Card.Text className="players-list">
-            {props.players.map( player => <PlayerCard key={player.name} player={player} togglePlayer={(e) => togglePlayer(player, e)}/>)}
+          <div className="players-list" >
+            {props.players.map( player => <PlayerCard key={player.name} player={player} togglePlayer={() => togglePlayer(player)}/>)}
             {props.players.length ? null :
               <FontAwesomeIcon style={{ width: '90px', height: '90px' }} icon={faUserPlus}/>
             }
-          </Card.Text>
+          </div>
         </Card.Body>
       </Card>
       

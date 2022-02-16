@@ -1,4 +1,9 @@
-const COLORS = {
+export interface IColor {
+  fontColor: string,
+  color: string
+}
+
+const COLORS: {[key: string]: IColor} = {
   deepred: {
     fontColor: 'white',
     color: '#a30206'
@@ -38,6 +43,10 @@ const COLORS = {
   pink: {
     fontColor: 'black',
     color: '#df5aee'
+  },
+  lightpink: {
+    fontColor: 'black',
+    color: '#EEACE9'
   },
   white: {
     fontColor: 'black',

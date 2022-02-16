@@ -1,27 +1,28 @@
 import React from "react";
-import {getGames, deleteGameApi} from "../state/api"
-import "../styles/GameList.css"
-import Card from "react-bootstrap/Card";
+import { withRouter } from "react-router";
 import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignInAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-import { withRouter } from "react-router";
-import PropTypes from "prop-types";
+
+import "../styles/GameList.css"
+import {getGames, deleteGameApi} from "../state/api"
 
 
-GamesList.propTypes = {
-  submit: PropTypes.func.isRequired
+interface IGameListProps {
+  submit: (arg: string) => void;
 }
 
-function GamesList(props) {
+const GamesList: React.FC<IGameListProps> = (props) => {
+
   const [games, setGames] = React.useState(getGames() || null);
   
-  function deleteGame(pin) {
+  function deleteGame(pin: string): void {
     deleteGameApi(pin);
     setGames(getGames());
   }
   
-  function redirect(pin) {
+  function redirect(pin: string): void {
     props.submit(pin);
   }
   
@@ -32,7 +33,7 @@ function GamesList(props) {
         <Card.Text>
           { games && Object.keys(games).map(key =>
              <Card bg="light" text="dark" className="mb-2" key={key}>
-               <Card.Body text="info" bg="light">
+               <Card.Body>
                  <Card.Title className="game-list-card__header">
                    <p>{key}</p>
                    <div>
@@ -44,7 +45,7 @@ function GamesList(props) {
                    </Button>
                    </div>
                  </Card.Title>
-                 <Card.Text text="light" className="game-list-card__info">
+                 <Card.Text   className="game-list-card__info">
                   Players: {games[key].players.length}
                  </Card.Text>
                </Card.Body>
