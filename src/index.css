@@ -1,3 +1,4 @@
 body {
-    background-color: black !important;
+    background-color: #EEE !important;
+    background-image: url(assets/bcg.svg);
 }

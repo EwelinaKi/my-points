@@ -27,7 +27,7 @@ const GamesList: React.FC<IGameListProps> = (props) => {
   }
   
   return (
-      <Card bg="light" text="dark" className="game-list-card">
+    <Card bg="light" text="dark" className="game-list-card">
       <Card.Body>
         <Card.Title className="mb-3">{games && Object.keys(games).length ? "Recent games" : "No recent games"}</Card.Title>
         <Card.Text>

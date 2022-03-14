@@ -11,7 +11,6 @@ import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
 
-import svg from "./assets/bcg.svg";
 import {useLocalStorage} from "./hooks/useLocalStorage"
 import About from "./views/About";
 import Game from "./views/Game";
@@ -37,12 +36,8 @@ function App() {
   }
   
   return (
-    <div className="App" style={{
-      backgroundImage: `url(${svg})`,
-      backgroundRepeat: "repeat",
-      height: "100vh"
-    }}>
-      
+    <div className="App">
+
       <Router history={history}>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>

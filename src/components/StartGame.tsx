@@ -93,6 +93,7 @@ const StartGame: React.FC<IStartGameProps> = (props) => {
               <Button className="start-game-card__button"
                 variant="outline-primary"
                 type="button"
+                disabled
                 onClick={mode.switchBtnFn}>{mode.switchBtnLabel}
               </Button>
             </div>
