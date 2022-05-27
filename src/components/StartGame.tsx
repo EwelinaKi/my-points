@@ -81,11 +81,12 @@ const StartGame: React.FC<IStartGameProps> = (props) => {
               <InputGroup.Text className="start-game-card__label">{mode.passInputLabel}</InputGroup.Text>
               <Form.Control
                 onChange={e => setTempGamePass(e.target.value)}
+                disabled
                 value={tempGamePass}/>
             </InputGroup>
           
             <div className="start-game-card__buttons">
-              <Button className="start-game-card__button"
+              <Button className="start-game-card__button mr-3"
                 variant="primary"
                 type="submit"
                 disabled={!mode.pinDisabled}>{mode.goBtnLabel}

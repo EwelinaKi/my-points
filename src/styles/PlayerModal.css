@@ -1,7 +1,7 @@
 .player-modal__container {
   min-width: 250px;
   width: 250px;
-  margin: 30% auto;
+  margin: 10% auto auto auto;
 }
 
 .player-modal__player-name {
