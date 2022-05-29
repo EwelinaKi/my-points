@@ -1,13 +1,35 @@
 .color-picker-item {
   display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .color-picker-item__box {
-  width: 20px;
-  height: 20px;
-  border: 2px double white;
-  border-radius: 10px;
-  margin-right: 5px;
+  height: 40px;
+  border-radius: 30px;
+  margin: 1px;
+}
+
+.color-picker-item__wrapper {
+  width: 40px;
+  height: 40px;
+}
+
+.color-picker-item__box--selected {
+  border: 5px double white;
+}
+
+.color-picker-item__box--unselected {
+  border: 5px double white;
+
+}
+
+.color-picker-item__box:hover {
+  box-shadow: #848484;
+}
+
+.disabled {
+  border: 5px double white;
+  background-image: linear-gradient(45deg, transparent 16.67%, white 16.67%, white 50%, transparent 50%, transparent 66.67%, white 66.67%, white 100%);
+  background-size: 21px 21px;
 }

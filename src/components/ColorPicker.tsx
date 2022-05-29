@@ -1,7 +1,5 @@
 import React from "react";
-import Dropdown from "react-bootstrap/Dropdown";
-import { withRouter } from "react-router";
-import DropdownButton from "react-bootstrap/DropdownButton";
+import {withRouter} from "react-router";
 
 import "../styles/GameList.css"
 import "../styles/ColorPicker.css";
@@ -12,18 +10,50 @@ interface IColorPickerProps {
   onSelect: (arg: string) => void;
 }
 
-const ColorPicker: React.FC<IColorPickerProps> = (props) => {
-  
+const ColorPicker: React.FC<IColorPickerProps> = ({onSelect}) => {
+
+  const [ selectedColor, setSelectedColor ] = React.useState<string>('');
+
+  const selectColor = (color: string): void => {
+    if (isOccupied(color)) {
+      return;
+    }
+    setSelectedColor(color);
+    console.log(selectedColor, color);
+  }
+
+  const getStyle = (colorName: string) => ({
+    backgroundColor: `${COLORS[colorName].color}`,
+    color: `${COLORS[colorName].fontColor}`
+  })
+
+  const isOccupied = (color: string): boolean => {
+    return false;
+  }
+
+  const getClassName = (color: string) => {
+    const className =  isOccupied(color) ?
+      'disabled' : selectedColor === color ?
+        'color-picker-item__box--selected' : 'color-picker-item__box'
+
+    return 'color-picker-item__box ' + className;
+  }
+
+  React.useEffect(() => {
+    onSelect(selectedColor);
+  }, [ selectedColor ])
+
+
   return (
-    <DropdownButton variant="outline-secondary" title="Pick color">
+    <div className='color-picker-item'>
       {Object.keys(COLORS).map((key) =>
-          <Dropdown.Item  key={key}>
-            <div className="color-picker-item" onClick={() => props.onSelect(key)}>
-              <div className="color-picker-item__box" style={{backgroundColor: `${COLORS[key].color}`}}/>
-              <span>{key}</span>
-            </div>
-          </Dropdown.Item >)}
-    </DropdownButton>
+        <div className='color-picker-item__wrapper'
+             key={key}
+             onClick={() => selectColor(key)}
+        ><div className={getClassName(key)} style={getStyle(key)}/>
+        </div>
+      )}
+    </div>
   )
 }
 

@@ -42,13 +42,15 @@ const PlayerModal: React.FC<IPlayerModalProps> = (props) => {
         <InputGroup className="mb-3 player-modal__player-name">
           <InputGroup.Text>Name</InputGroup.Text>
           <Form.Control onChange={(event) => setName(event.target.value)} value={name}/>
+          {color ?
+              <InputGroup.Text style={{backgroundColor: `${COLORS[color].color}`,
+                color: `${COLORS[color].fontColor}`, width: '100px'}}>{color}</InputGroup.Text>
+              :
+              <InputGroup.Text>Select color</InputGroup.Text>
+          }
         </InputGroup>
         <div className="player-modal__color-picker">
           <ColorPicker color={color} onSelect={(selectedColor) => setColor(selectedColor)}/>
-          {color && <div className="player-modal__preview" style={{
-            backgroundColor: `${COLORS[color].color}`,
-            color: `${COLORS[color].fontColor}`
-          }}>{color}</div>}
         </div>
       </Form>
     </ModalWrapper>
